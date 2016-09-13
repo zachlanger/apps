@@ -1,0 +1,40 @@
+Trees Riddle
+
+12
+|A|
+---
+|B|
+ 8
+
+Less than or equal to 18? or greater than or equal to 20?
+
+Day 1
+	A passes because he sees 12. But if he could see >18, he would know there couldn't be <=18 trees, so
+	B knows that A has <=18
+
+	B passes because he sees 8 and knows A has X<=18. But if he could see <=1, he would know there couldn't be >=20, so
+	A knows that B has >=2 trees
+
+Day 2
+	A passes because he sees 12 and knows B has >=2. But if he could see >16, he would know there couldn't be <=18 trees, so
+	B knows that A has <=16
+
+	B passes because he sees 8 and A has X<=16. But if he could see <=3, he would know there couldn't be >=20, so
+	A knows that B has >=4 trees
+
+Day 3
+	A passes because he sees 12 and knows B has >=4. But if he could see >14, he would know there couldn't be <=18 trees, so
+	B knows that A has <=14
+
+	B passes because he sees 8 and A has X<=14. But if he could see <=5, he would know there couldn't be >=20, so
+	A knows that B has >=6 trees
+
+Day 4
+	A passes because he sees 12 and knows B has >=6. But if he could see >12, he would know there couldn't be <=18 trees, so
+	B knows that A has <=12
+
+	B passes because he sees 8 and A has X<=12. But if he could see <=7, he would know there couldn't be >=20, so
+	A knows that B has >=8 trees
+
+Day 5
+	A knows that B has >=8 and A sees 12, so I knows that there are 20 or more trees, and theyre set free

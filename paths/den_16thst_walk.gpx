@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Map data ©2016 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2016</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.co.uk/maps/dir/39.7445286,-104.9912626/1501 16th St, Denver, CO 80202/@39.7477374,-104.9992301,16z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x876c78c49223729d:0x570c225e04045f17!2m2!1d-104.9991697!2d39.7505504!3e2?hl=en</url-->
+    <time>2016-07-30T17:25:38Z</time>
+  </metadata>
+  <wpt lat="39.7445252" lon="-104.9912757">
+    <name>WP001</name>
+    <time>2016-07-30T17:25:38Z</time>
+  </wpt>
+  <wpt lat="39.74487" lon="-104.99172">
+    <name>WP002</name>
+    <time>2016-07-30T17:26:20Z</time>
+  </wpt>
+  <wpt lat="39.74517" lon="-104.99212">
+    <name>WP003</name>
+    <time>2016-07-30T17:26:58Z</time>
+  </wpt>
+  <wpt lat="39.74521" lon="-104.99217">
+    <name>WP004</name>
+    <time>2016-07-30T17:27:03Z</time>
+  </wpt>
+  <wpt lat="39.74587" lon="-104.99302">
+    <name>WP005</name>
+    <time>2016-07-30T17:28:24Z</time>
+  </wpt>
+  <wpt lat="39.7459" lon="-104.99308">
+    <name>WP006</name>
+    <time>2016-07-30T17:28:29Z</time>
+  </wpt>
+  <wpt lat="39.74654" lon="-104.99392">
+    <name>WP007</name>
+    <time>2016-07-30T17:29:48Z</time>
+  </wpt>
+  <wpt lat="39.74688" lon="-104.99436">
+    <name>WP008</name>
+    <time>2016-07-30T17:30:30Z</time>
+  </wpt>
+  <wpt lat="39.74721" lon="-104.99479">
+    <name>WP009</name>
+    <time>2016-07-30T17:31:11Z</time>
+  </wpt>
+  <wpt lat="39.74786" lon="-104.99565">
+    <name>WP010</name>
+    <time>2016-07-30T17:32:32Z</time>
+  </wpt>
+  <wpt lat="39.74814" lon="-104.99601">
+    <name>WP011</name>
+    <time>2016-07-30T17:33:07Z</time>
+  </wpt>
+  <wpt lat="39.74823" lon="-104.99613">
+    <name>WP012</name>
+    <time>2016-07-30T17:33:19Z</time>
+  </wpt>
+  <wpt lat="39.74855" lon="-104.99654">
+    <name>WP013</name>
+    <time>2016-07-30T17:33:58Z</time>
+  </wpt>
+  <wpt lat="39.74921" lon="-104.99745">
+    <name>WP014</name>
+    <time>2016-07-30T17:35:22Z</time>
+  </wpt>
+  <wpt lat="39.74955" lon="-104.99785">
+    <name>WP015</name>
+    <time>2016-07-30T17:36:02Z</time>
+  </wpt>
+  <wpt lat="39.74989" lon="-104.99829">
+    <name>WP016</name>
+    <time>2016-07-30T17:36:44Z</time>
+  </wpt>
+  <wpt lat="39.75003" lon="-104.99849">
+    <name>WP017</name>
+    <time>2016-07-30T17:37:02Z</time>
+  </wpt>
+  <wpt lat="39.75034" lon="-104.99888">
+    <name>WP018</name>
+    <time>2016-07-30T17:37:40Z</time>
+  </wpt>
+  <wpt lat="39.75054" lon="-104.99916">
+    <name>WP019</name>
+    <time>2016-07-30T17:38:06Z</time>
+  </wpt>
+  <wpt lat="39.7505436" lon="-104.999161">
+    <name>WP020</name>
+    <time>2016-07-30T17:38:07Z</time>
+  </wpt>
+</gpx>
