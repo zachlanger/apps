@@ -5,7 +5,6 @@ class Solve
     def initialize
         @grid = Array.new(9) { Array.new(9) }
         @prior_grid
-        @temp_possible_value_resrtictions = Array.new
 
         @grid = [[nil,nil,nil,nil,nil,nil,nil,nil,nil],
         [nil,nil,nil,nil,nil,nil,nil,nil,nil],
@@ -29,6 +28,7 @@ class Solve
         
         @start = Time.now
         @finish = Time.now
+        @time_spent_thinking = 0
         solve
     end
 
@@ -150,12 +150,6 @@ class Solve
             end
         end
 
-        @temp_possible_value_resrtictions.each do |restriction|
-            if (cell == restriction[0]) && (square == restriction[1])
-                values.delete(restriction[2])
-            end
-        end
-
         return values
     end
 
@@ -202,7 +196,7 @@ class Solve
         if grid_is_solved == true
         	print_grid
             @finish = Time.now
-        	abort("Solved: #{@finish - @start}")
+        	abort("Solved in #{((@finish - @start) - @time_spent_thinking).round(5)} seconds")
         else
         	return  false
         end
@@ -231,12 +225,14 @@ class Solve
         return false
     end
 
-    def continue_tests                                                                                                              
+    def continue_tests
+        thinking_start = Time.now
         print "Continue?"                                                                                                    
         continue = gets.chomp                                                                                                            
         if continue != ""
             abort("Aborted")
         end
+        @time_spent_thinking += Time.now - thinking_start
     end
 
     def test_possible_values
@@ -251,21 +247,18 @@ class Solve
         			# IN TESTING
         			possible_values(cell, square).each do |test_value|
         				@grid[cell][square] = test_value
+                        print "Testing cell: #{cell} square: #{square} as #{test_value}: "
+                        print_possible_values
         				until solved? || stuck?
         					@prior_grid = @grid.inject([]) { |a,element| a << element.dup }
             				fill_in
        					end
                         if broken?
-                            puts "Broke on cell: #{cell} square: #{square} as a #{test_value}"
-                            # @temp_possible_value_resrtictions.push([cell,square,test_value])
-                            # print @temp_possible_value_resrtictions
-                            # puts possible_values(cell, square).length
-                            # puts
+                            puts "which broke"
                         end
        					if !broken?
-                            puts "Stuck on cell: #{cell} square: #{square} as a #{test_value}"
+                            puts "which got stuck"
                             print_grid
-                            print_possible_values
                             continue_tests
        						test_possible_values
        					end
