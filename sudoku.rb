@@ -5,6 +5,9 @@ class Solve
     def initialize
         @grid = Array.new(9) { Array.new(9) }
         @prior_grid
+        @start = Time.now
+        @finish = Time.now
+        @time_spent_thinking = 0
 
         @grid = [[nil,nil,nil,nil,nil,nil,nil,nil,nil],
         [nil,nil,nil,nil,nil,nil,nil,nil,nil],
@@ -19,19 +22,19 @@ class Solve
 
         grid_is_correct = 'no'
         until grid_is_correct[0] == 'y'
+            thinking_start = Time.now
             #input_value
             easy_input
             puts 'Is this correct?'
             print_grid
             grid_is_correct = gets.chomp.downcase
+            @time_spent_thinking += Time.now - thinking_start
         end
         
-        @start = Time.now
-        @finish = Time.now
-        @time_spent_thinking = 0
         solve
     end
 
+    # not necessary
     def easy_input
         cell = 0
         9.times do
@@ -153,6 +156,7 @@ class Solve
         return values
     end
 
+    # not necessary
     def print_possible_values
         cell = 0
         square = 0
@@ -203,6 +207,7 @@ class Solve
     end
 
     def stuck?
+        # might want to change prior grid to an inputed test grid
     	@prior_grid == @grid ? true : false
     end
 
@@ -214,7 +219,6 @@ class Solve
                 if @grid[cell][square] == nil
                     if possible_values(cell, square).length == 0
                         return true
-                        puts "BROKEN"
                     end
                 end
                 square += 1
@@ -225,6 +229,7 @@ class Solve
         return false
     end
 
+    # not necessary
     def continue_tests
         thinking_start = Time.now
         print "Continue?"                                                                                                    
@@ -235,63 +240,47 @@ class Solve
         @time_spent_thinking += Time.now - thinking_start
     end
 
-    def test_possible_values
-    	cell = 0
-        square = 0
-        backup_grid = @grid.inject([]) { |a,element| a << element.dup }
-
-        9.times do
-        	9.times do 
-        		if @grid[cell][square] == nil
-
-        			# IN TESTING
-        			possible_values(cell, square).each do |test_value|
-        				@grid[cell][square] = test_value
-                        print "Testing cell: #{cell} square: #{square} as #{test_value}: "
-                        print_possible_values
-        				until solved? || stuck?
-        					@prior_grid = @grid.inject([]) { |a,element| a << element.dup }
-            				fill_in
-       					end
-                        if broken?
-                            puts "which broke"
-                        end
-       					if !broken?
-                            puts "which got stuck"
-                            print_grid
-                            continue_tests
-       						test_possible_values
-       					end
-        				@grid = backup_grid.inject([]) { |a,element| a << element.dup }
-        			end
-        			# IN TESTING
-
-        		end
-        		square += 1
-        	end
-        	cell += 1
-        	square = 0
-        end
-        puts "Couldnt solve"
-    end
-    
     def solve
-
         until solved? || stuck?
-        	@prior_grid = @grid.inject([]) { |a,element| a << element.dup }
+            @prior_grid = @grid.inject([]) { |a,element| a << element.dup }
             fill_in
-            puts
         end
+        if !broken?
+            cell = 0
+            square = 0
+            9.times do
+                9.times do 
+                    if @grid[cell][square] == nil
+                        # IN TESTING
 
-        if broken?
-        	abort("BROKEN")
-        end
-        
-        if stuck?
-        	print_grid
-            print_possible_values
-        	puts "\nin_stuck_loop"
-        	test_possible_values
+                        backup_grid =  @grid.inject([]) { |a,element| a << element.dup }
+
+                        puts "possible values for cell: #{cell} square: #{square} are #{possible_values(cell, square)}"
+
+                        possible_values(cell, square).each do |test_value|
+
+                            @grid[cell][square] = test_value
+                            puts "testing cell: #{cell} square: #{square} as #{test_value}"
+
+                            solve
+
+                            @grid = backup_grid.inject([]) { |a,element| a << element.dup }
+                            
+                            puts
+                        end
+
+                        return "cell: #{cell} square: #{square} has no possible values"
+                        puts
+
+                        # IN TESTING
+                    end
+                    square += 1
+                end
+                cell += 1
+                square = 0
+            end
+        else
+            puts "broken"
         end
     end
 end
