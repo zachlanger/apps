@@ -31,7 +31,9 @@ class Solve
             @time_spent_thinking += Time.now - thinking_start
         end
         
+        print_possible_values
         solve
+        puts
     end
 
     # not necessary
@@ -207,7 +209,6 @@ class Solve
     end
 
     def stuck?
-        # might want to change prior grid to an inputed test grid
     	@prior_grid == @grid ? true : false
     end
 
@@ -251,36 +252,21 @@ class Solve
             9.times do
                 9.times do 
                     if @grid[cell][square] == nil
-                        # IN TESTING
-
                         backup_grid =  @grid.inject([]) { |a,element| a << element.dup }
 
-                        puts "possible values for cell: #{cell} square: #{square} are #{possible_values(cell, square)}"
-
                         possible_values(cell, square).each do |test_value|
-
                             @grid[cell][square] = test_value
-                            puts "testing cell: #{cell} square: #{square} as #{test_value}"
-
                             solve
-
                             @grid = backup_grid.inject([]) { |a,element| a << element.dup }
-                            
-                            puts
                         end
 
-                        return "cell: #{cell} square: #{square} has no possible values"
-                        puts
-
-                        # IN TESTING
+                        return
                     end
                     square += 1
                 end
                 cell += 1
                 square = 0
             end
-        else
-            puts "broken"
         end
     end
 end
